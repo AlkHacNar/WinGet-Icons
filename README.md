@@ -1,6 +1,6 @@
 # WinGet-Icons
-App Icons with winget IDs
-
+A sert of app icons named with the winget ID as filename for the use with iIntune or SCCM.
+They are in PNG format and max size is 512x512.
 
 ## License
 
