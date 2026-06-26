@@ -4,7 +4,7 @@ They are in PNG format and max size is 512x512.
 There also are some apps, which aren't in winget but I use, so feel free to add some, or change already available, if you find better ones.
 
 ## Credits
-Thanks to [Aaron Parker]([url](https://github.com/aaronparker/icons)) for the idea an some icons I missed.
+Thanks to [Aaron Parker](https://github.com/aaronparker/icons) for the idea an some icons I missed.
 
 ## License
 
