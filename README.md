@@ -14,5 +14,5 @@ Thanks to [Aaron Parker](https://github.com/aaronparker/icons) for the idea and 
 
 This repository is licensed with an MIT license; however, the icons themselves remain the property of their respective software vendors.
 
-[license-badge]: https://img.shields.io/github/license/aaronparker/icons.svg?style=flat-square
+[license-badge]: https://img.shields.io/github/license/AlkHacNar/WinGet-Icons.svg?style=flat-square
 [license]: https://github.com/AlkHacNar/WinGet-Icons/blob/main/LICENSE
