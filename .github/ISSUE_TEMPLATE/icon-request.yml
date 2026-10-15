@@ -1,0 +1,35 @@
+name: Icon request
+description: Ask for an icon for a WinGet app - or send one in.
+title: "[Icon request]: "
+labels: ["icon-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Icons are named after the app's **WinGet package ID** (`winget search <name>` shows it, e.g. `7zip.7zip`).
+        A check runs as soon as the issue is opened: whether the ID is in WinGet, whether an icon for it already exists, and - if you attach one - whether the image can be used (PNG or JPEG, at most 512 x 512 pixels).
+  - type: input
+    id: appid
+    attributes:
+      label: AppID
+      description: The WinGet package ID, exactly as WinGet writes it (the case matters). A family of packages that share one icon works too, e.g. `Microsoft.VCRedist`.
+      placeholder: 7zip.7zip
+    validations:
+      required: true
+  - type: checkboxes
+    id: nonwinget
+    attributes:
+      label: Not in WinGet
+      description: Only for an app that is not in WinGet. Its icon then goes to `Non-WinGet/`, and the AppID above has to be written as `Vendor.Name` (e.g. `MTG.SmartBridge`).
+      options:
+        - label: This app is not in WinGet - the icon goes to Non-WinGet/
+  - type: textarea
+    id: icon
+    attributes:
+      label: Icon
+      description: Optional - drag a PNG or JPEG (at most 512 x 512) in here. Leave empty to only ask for one.
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Optional - where the icon comes from, or anything else.

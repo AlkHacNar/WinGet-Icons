@@ -1,0 +1,40 @@
+# Checks icons added to or changed in WinGet/ (name = a WinGet package ID or family, WinGet's capitalisation) and Non-WinGet/
+# (name pattern Vendor.Name, not an app WinGet has); both a PNG or JPEG of at most 512 x 512. A push to main with problems opens an issue; a pull request with problems fails.
+# Run by hand (Actions > Icon check > Run workflow) to check every icon in WinGet/.
+name: Icon check
+
+on:
+  push:
+    branches: [main]
+    paths: ['WinGet/**', 'Non-WinGet/**']
+  pull_request:
+    paths: ['WinGet/**', 'Non-WinGet/**']
+  workflow_dispatch:
+    inputs:
+      all:
+        description: Check every icon in WinGet/ and Non-WinGet/, not only the changed ones
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Check the icons
+        shell: pwsh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EVENT_NAME: ${{ github.event_name }}
+          BEFORE: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || github.event.before }}
+          AFTER: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+        run: |
+          if ('${{ github.event_name }}' -eq 'workflow_dispatch' -and '${{ inputs.all }}' -eq 'true') { ./.github/scripts/Check-PushedIcons.ps1 -All }
+          else { ./.github/scripts/Check-PushedIcons.ps1 }
