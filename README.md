@@ -6,7 +6,7 @@ There also are some apps, which aren't in winget but I use, so feel free to add 
 Note: I use this icons with my PowerShell script and wildcards. So there are some apps, which use only 1 icon but have different WinGet IDs like Adobe.Acrobat.Reader.png.
 
 ## Requesting an icon
-Open an issue with the **Icon request** form: the app's WinGet package ID (`winget search <name>` shows it), and - if you have one - the icon itself (PNG or JPEG, at most 512x512).
+Open an issue with the **Icon request** form: the app's WinGet package ID (`winget search <name>` shows it), and - if you have one - the icon itself (PNG, at most 512x512).
 A check answers right away: whether the ID is in WinGet (with a hint when only the capitalisation is off), whether there already is an icon for it, and whether the attached image can be used.
 For an app that is not in WinGet, tick **This app is not in WinGet** - its icon then goes to `Non-WinGet/`, named `Vendor.Name` (e.g. `MTG.SmartBridge`).
 
